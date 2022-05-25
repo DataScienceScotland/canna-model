@@ -1,0 +1,59 @@
+PCR_sensitivity: 0.90
+PCR_specificity: 1
+population_size: 56000000
+start_date: "01/06/2020"
+end_date: "02/05/2021"
+
+case_contact_volumes_generated: ["cases_no_test_symp", "contacts_app_reached", 'contacts_schools', "counterfactual_cases", "counterfactual_contacts", "counterfactual_symp_only_pop"]
+static_assumptions: ['PCR_sensitivity', 'PCR_specificity']
+
+isolation_compliance_mapping:
+  contacts_household_reached: "contact_compliance"
+  contacts_nonhousehold_reached: "contact_compliance"
+  contacts_schools: "contact_compliance"
+  contacts_app_reached: "contact_compliance"
+  cases_PCR_test_symp: "case_positive_test_compliance"
+  cases_PCR_test_asymp: "case_positive_test_compliance"
+  cases_PCR_test_pillar1: "case_positive_test_compliance"
+  cases_ConfPCR_test: "case_positive_test_compliance"
+  cases_LFD_test_asymp_selftest: "case_positive_test_compliance"
+  cases_LFD_test_asymp_assisted: "case_positive_test_compliance"
+  cases_no_test_symp: "case_symp_compliance"
+  counterfactual_cases: "case_positive_test_compliance"
+  counterfactual_contacts: "contact_compliance"
+  counterfactual_symp_only_pop: "case_symp_compliance"
+
+onward_transmission_abated_mapping:
+  cases_PCR_test_symp: "transmission_abated_pcr"
+  cases_PCR_test_asymp: "transmission_abated_pcr"
+  cases_PCR_test_pillar1: "transmission_abated_pcr"
+  cases_no_test_symp: "transmission_abated_symptom_onset"
+  cases_ConfPCR_test: "transmission_abated_lfd"
+  cases_LFD_test_asymp_selftest: "transmission_abated_lfd"
+  cases_LFD_test_asymp_assisted: "transmission_abated_lfd"
+  contacts_schools: "transmission_abated_school_contacts"
+  contacts_app_reached: "transmission_abated_app_contacts"
+  contacts_nonhousehold_reached: "nonhousehold_ctas_contacts_transmission_abated"
+  contacts_household_reached: "household_ctas_contacts_transmission_abated"
+  counterfactual_cases: "transmission_abated_symptom_onset"
+  counterfactual_contacts: "transmission_abated_symptom_onset"
+  counterfactual_symp_only_pop: "transmission_abated_symptom_onset"
+
+attack_rate_mapping:
+  contacts_nonhousehold_reached: "attack_rate_non_household"
+  contacts_household_reached: "attack_rate_household"
+  contacts_app_reached: "attack_rate_non_household"
+  contacts_schools: "attack_rate_nhh_2_16"
+  counterfactual_contacts: "attack_rate_household"
+
+groupings:
+  NHSTT_total: ["cases_PCR_test_symp", "cases_PCR_test_asymp", "cases_LFD_test_asymp_selftest", "cases_LFD_test_asymp_assisted", "cases_ConfPCR_test", "contacts_household_reached", "contacts_nonhousehold_reached", "contacts_app_reached", "contacts_schools"]
+  NHSTT_cases: ["cases_PCR_test_symp", "cases_PCR_test_asymp", "cases_LFD_test_asymp_selftest", "cases_LFD_test_asymp_assisted", "cases_ConfPCR_test"]
+  NHSTT_contacts: ["contacts_household_reached", "contacts_nonhousehold_reached", "contacts_app_reached", "contacts_schools"]
+  self_isolation_symp: ["cases_no_test_symp"]
+  TTI_total: ["cases_no_test_symp", "cases_PCR_test_symp", "cases_PCR_test_asymp", "cases_LFD_test_asymp_selftest", "cases_LFD_test_asymp_assisted", "cases_ConfPCR_test", "contacts_household_reached", "contacts_nonhousehold_reached", "contacts_app_reached","contacts_schools"]
+  counter_total: ["counterfactual_cases", "counterfactual_contacts", "counterfactual_symp_only_pop"]
+
+variance_correlations:
+  days_to_isolate_CTAS: ['household_ctas_days_to_isolate', 'nonhousehold_ctas_days_to_isolate']
+  transmission_abated: ['transmission_abated_pcr', 'transmission_abated_lfd', 'transmission_abated_symptom_onset']

@@ -1,0 +1,58 @@
+days_to_isolate_CTAS:
+  SD: 0.5
+  dist: "Normal"
+  SD_type: "Absolute"
+days_to_isolate_app:
+  SD: 0.5
+  dist: "Normal"
+  SD_type: "Absolute"
+days_to_isolate_schools:
+  SD: 0.5
+  dist: "Normal"
+  SD_type: "Absolute"
+transmission_abated:
+  SD: 0.05
+  dist: "Normal"
+  SD_type: "Absolute"
+attack_rate_non_household:
+  SD: 0.1
+  dist: "Normal"
+  SD_type: "Relative"
+attack_rate_household:
+  SD: 0.1
+  dist: "Normal"
+  SD_type: "Relative"
+attack_rate_nhh_2_16:
+  SD: 0.025
+  dist: "Normal"
+  SD_type: "Absolute"
+contact_compliance:
+  SD: 0.05
+  dist: "Normal"
+  SD_type: "Absolute"
+case_positive_test_compliance:
+  SD: 0.05
+  dist: "Normal"
+  SD_type: "Absolute"
+case_symp_compliance:
+  SD: 0.05
+  dist: "Normal"
+  SD_type: "Absolute"
+population_testing_positive:
+  SD: 0.05
+  dist: "Normal"
+  SD_type: "Relative"
+proportion_cases_symptomatic:
+  SD: 0.05
+  dist: "Normal"
+  SD_type: "Relative"
+r_rate:
+  SD: 0.05
+  dist: "Normal"
+  SD_type: "Relative"
+app_exposure_notifications_sent:
+  SD: 0.2
+  dist: "Normal"
+  SD_type: "Relative"
+
+
